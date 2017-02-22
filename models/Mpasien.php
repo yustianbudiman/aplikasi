@@ -30,10 +30,12 @@ class Mpasien extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
-            [['id', 'id_dokter'], 'integer'],
+            // [['id'], 'required'],
+            [['id', 'no_telepon','identitas','atribut','jenis_pasien'], 'integer'],
             [['tanggal'], 'safe'],
             [['id_order', 'nama', 'alamat'], 'string', 'max' => 255],
+            [['jenis_kelamin'], 'string', 'max' => 15],
+            [['no_identitas'], 'string', 'max' => 30],
         ];
     }
 
@@ -48,7 +50,12 @@ class Mpasien extends \yii\db\ActiveRecord
             'tanggal' => 'Tanggal',
             'nama' => 'Nama',
             'alamat' => 'Alamat',
-            'id_dokter' => 'Id Dokter',
+            'no_telepon' => 'No Telepon',
+            'atribut' => 'Atribut',
+            'jenis_kelamin' => 'Jenis Kelamin',
+            'jenis_pasien' => 'Jenis Pasien',
+            'identitas' => 'Identitas',
+            'no_identitas' => 'No Identitas',
         ];
     }
 }

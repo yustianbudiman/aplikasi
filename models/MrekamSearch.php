@@ -6,6 +6,9 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Mrekam;
+use yii\data\SqlDataProvider;
+use yii\db\Query;
+use yii\db\Command;
 
 /**
  * MrekamSearch represents the model behind the search form about `app\models\Mrekam`.
@@ -18,8 +21,8 @@ class MrekamSearch extends Mrekam
     public function rules()
     {
         return [
-            [['id', 'id_dokter'], 'integer'],
-            [['id_order', 'keluhan', 'resep', 'tanggal', 'id_pasien'], 'safe'],
+            [['id'], 'integer'],
+            [['keluhan', 'resep', 'tanggal', 'id_pasien'], 'safe'],
         ];
     }
 
@@ -41,13 +44,31 @@ class MrekamSearch extends Mrekam
      */
     public function search($params)
     {
-        $query = Mrekam::find();
+        // $query = Mrekam::find();
+        $query = new Query;
+       
+       $query="select a.id_rekam,a.id_order as id_pasien,b.nama,a.tanggal, a.keluhan_awal 
+       from rumah_sakit.rekam a
+       inner join rumah_sakit.pasien b on a.id_order=b.id_order
+       left join rumah_sakit.rawat_jalan c on a.id_rekam=c.id_rekam
+       left join rumah_sakit.rawat_inap d on a.id_rekam=d.id_rekam";
+        $keyWord  = htmlspecialchars($_GET['MrekamSearch']['id_order'], ENT_QUOTES);
+         if($_GET['MrekamSearch']['id_order']!=''){
+          $query .=" where  a.id_order ='".strtoupper($keyWord)."'";
+          $query .=" or  a.id_rekam ='".strtoupper($keyWord)."'";
+         }
 
         // add conditions that should always apply here
 
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
+        $jml = Yii::$app->db->createCommand(" select count(*) from (".$query.")a  ")->queryScalar();  
+        $dataProvider = new SqlDataProvider([
+            'sql' => $query,
+            'totalCount' => (int)$jml,
+            'pagination' => [
+            'pageSize' => 10,
+      ]
         ]);
+
 
         $this->load($params);
 
@@ -57,17 +78,6 @@ class MrekamSearch extends Mrekam
             return $dataProvider;
         }
 
-        // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'tanggal' => $this->tanggal,
-            'id_dokter' => $this->id_dokter,
-        ]);
-
-        $query->andFilterWhere(['like', 'id_order', $this->id_order])
-            ->andFilterWhere(['like', 'keluhan', $this->keluhan])
-            ->andFilterWhere(['like', 'resep', $this->resep])
-            ->andFilterWhere(['like', 'id_pasien', $this->id_pasien]);
 
         return $dataProvider;
     }

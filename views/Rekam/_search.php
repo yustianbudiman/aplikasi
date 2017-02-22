@@ -13,17 +13,19 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
+        'id'=>'searchForm', 
+        'options'=>['name'=>'searchForm']
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?//= $form->field($model, 'id') ?>
 
     <?= $form->field($model, 'id_order') ?>
 
-    <?= $form->field($model, 'keluhan') ?>
+    <?//= $form->field($model, 'keluhan') ?>
 
-    <?= $form->field($model, 'resep') ?>
+    <?//= $form->field($model, 'resep') ?>
 
-    <?= $form->field($model, 'tanggal') ?>
+    <?//= $form->field($model, 'tanggal') ?>
 
     <?php // echo $form->field($model, 'id_pasien') ?>
 

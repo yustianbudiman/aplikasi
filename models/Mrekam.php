@@ -31,10 +31,13 @@ class Mrekam extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
-            [['id', 'id_dokter'], 'integer'],
+            // [['id'], 'required'],
+            [['id'], 'integer'],
             [['tanggal'], 'safe'],
             [['id_order', 'keluhan', 'resep', 'id_pasien'], 'string', 'max' => 255],
+            [['id_rekam'], 'string', 'max' => 16],
+            [['keluhan_awal'], 'string', 'max' => 100],
+            [['nama_penjamin'], 'string', 'max' => 50],
         ];
     }
 
@@ -50,7 +53,6 @@ class Mrekam extends \yii\db\ActiveRecord
             'resep' => 'Resep',
             'tanggal' => 'Tanggal',
             'id_pasien' => 'Id Pasien',
-            'id_dokter' => 'Id Dokter',
         ];
     }
 }

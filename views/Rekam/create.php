@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Mrekam */
 
-$this->title = 'Create Rekam';
-$this->params['breadcrumbs'][] = ['label' => 'Rekams', 'url' => ['index']];
+$this->title = 'Buat Rekam Medis';
+$this->params['breadcrumbs'][] = ['label' => 'Rekam Medis', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="mrekam-create">
@@ -16,6 +16,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'modelPasien' => $modelPasien,
+        'nomor' => $nomor,
+        'nomorRanap' => $nomorRanap,
+        'nomorRajal' => $nomorRajal,
     ]) ?>
 
 </div>

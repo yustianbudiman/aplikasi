@@ -11,7 +11,7 @@ use yii\widgets\ActiveForm;
 <div class="mrole-search">
 
     <?php $form = ActiveForm::begin([
-         'action' => ['index'],
+        'action' => ['index'],
         'method' => 'get',
         'id'=>'searchForm', 
         'options'=>['name'=>'searchForm']

@@ -9,7 +9,7 @@ $this->title = 'Sistem Informasi Rumah Sakit';
 
     <div class="row">
         <div class="col-lg-12">
-            <div class="panel panel-primary">
+            <div class="panel panel-dark">
                 <div class="panel-heading"><i class="fa fa-comments fa-1x"></i>&nbsp;Dashboard</div>
                 <div class="clearfix" style="padding:10px">
 

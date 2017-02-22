@@ -18,7 +18,7 @@ class MpasienSearch extends Mpasien
     public function rules()
     {
         return [
-            [['id', 'id_dokter'], 'integer'],
+            [['id', 'no_telepon'], 'integer'],
             [['id_order', 'tanggal', 'nama', 'alamat'], 'safe'],
         ];
     }
@@ -61,7 +61,7 @@ class MpasienSearch extends Mpasien
         $query->andFilterWhere([
             'id' => $this->id,
             'tanggal' => $this->tanggal,
-            'id_dokter' => $this->id_dokter,
+            'no_telepon' => $this->no_telepon,
         ]);
 
         $query->andFilterWhere(['like', 'id_order', $this->id_order])

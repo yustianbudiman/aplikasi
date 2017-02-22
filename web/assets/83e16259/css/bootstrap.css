@@ -4696,6 +4696,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   list-style: none;
   background-color: #f5f5f5;
   border-radius: 4px;
+  text-align: right;
 }
 .breadcrumb > li {
   display: inline-block;
@@ -5718,6 +5719,27 @@ button.list-group-item-danger.active:focus {
 .panel-primary > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #337ab7;
 }
+
+/*adding*/
+.panel-dark {
+  border-color: #222;
+}
+.panel-dark > .panel-heading {
+  color: #fff;
+  background-color: #222;
+  border-color: #222;
+}
+.panel-dark > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #222;
+}
+.panel-dark > .panel-heading .badge {
+  color: #222;
+  background-color: #fff;
+}
+.panel-dark > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #222;
+}
+/*end adding*/
 .panel-success {
   border-color: #d6e9c6;
 }

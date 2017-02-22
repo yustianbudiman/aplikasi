@@ -231,11 +231,11 @@ AppAsset::register($this);
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h5 class="page-header">
+                        <!-- <h5 class="page-header"> -->
                             <?= Breadcrumbs::widget([
                                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                             ]) ?>
-                        </h5>
+                        <!-- </h5> -->
                         <!-- <ol class="breadcrumb">
                             <li class="active">
                                 <i class="fa fa-dashboard"></i> <?= Html::encode($this->title) ?>
@@ -247,7 +247,7 @@ AppAsset::register($this);
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <!-- <div class="panel panel-primary">
+                        <!-- <div class="panel panel-dark">
                             <div class="panel-heading"><i class="fa fa-comments fa-1x"></i>This Is conten</div>
                             <div class="clearfix" style="padding:10px"> -->
 
@@ -260,7 +260,7 @@ AppAsset::register($this);
 
                <!--  <div class="row">
                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-primary">
+                        <div class="panel panel-dark">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">

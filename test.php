@@ -1,4 +1,0 @@
-<?php
- gfggf
-echo "adad";
-?>
